@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('workout_code')->references('code')->on('workouts');
+            $table->string('workout_code', 1);
+            $table->foreign('workout_code')->references('code')->on('workouts')->cascadeOnDelete();
             $table->integer('order');
             $table->string('name');
             $table->integer('sets');

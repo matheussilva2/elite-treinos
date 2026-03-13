@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('workout_code', 1);
             $table->foreign('workout_code')->references('code')->on('workouts');
-            $table->foreignId('client_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('client_id')->constrained('clients', 'user_id')->cascadeOnDelete();
             $table->unique(['client_id', 'workout_code']);
             $table->timestamps();
         });

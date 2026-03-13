@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->foreignId('user_id')->primary()->constrained()->cascadeOnDelete();
-            $table->foreignId('coach_id')->constrained('coachs', 'user_id')->cascadeOnDelete();
+            $table->foreignId('coach_id')->constrained('coaches', 'user_id')->cascadeOnDelete();
             $table->date('birthdate')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();

@@ -11,3 +11,4 @@ Route::middleware('auth:sanctum')->group(function() {
 });
 
 require __DIR__ . '/api/coaches.php';
+require __DIR__ . '/api/clients.php';

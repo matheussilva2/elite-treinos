@@ -61,7 +61,12 @@ export const Login = () => {
 
             {error && <span className={`${ui.feedbackError}`}>{error}</span>}
 
-            <button type="submit" className={`${ui.btnPrimary}`}>Entrar</button>
+            <button
+                type="submit"
+                className={`${ui.btnPrimary}`}
+                disabled={loading}>
+                    { loading ? 'Carregando...' : 'Entrar' }
+            </button>
         </form>
     </div>;
 }

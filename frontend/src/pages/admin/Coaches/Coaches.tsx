@@ -8,6 +8,13 @@ export const Coaches = () => {
     const [coaches, setCoaches] = useState<Coach[]>([]);
     const [loading, setLoading] = useState(false);
 
+    const deleteCoach = async(coach: Coach) => {
+        if(!confirm(`Apagar dados de ${coach.user.name}?`)) return;
+
+        await coachService.delete(coach.user.id);
+        fetchCoaches();
+    }
+
     const fetchCoaches = async() => {
         try {
             setLoading(true);
@@ -56,7 +63,7 @@ export const Coaches = () => {
                                         <Link to={`/coaches/${coach.user.id}/edit`} className={ui.btnWarning}>
                                             <img src="/assets/icons/pencil.svg" alt="Editar dados" />
                                         </Link>
-                                        <button className={ui.btnDanger}>
+                                        <button onClick={() => deleteCoach(coach)} className={ui.btnDanger}>
                                             <img src="/assets/icons/trash.svg" alt="Apagar" />
                                         </button>
                                     </td>

@@ -5,7 +5,9 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -24,5 +26,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function(AuthenticationException $e) {
             return response()->json([], Response::HTTP_UNAUTHORIZED);
+        });
+
+        $exceptions->render(function(ValidationException $e, Request $request) {
+            return response()->json([
+                "errors" => $e->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         });
     })->create();

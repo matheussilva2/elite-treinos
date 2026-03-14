@@ -54,7 +54,7 @@ export const Coaches = () => {
                                             <img src="/assets/icons/eye.svg" alt="Ver dados" />
                                         </Link>
                                         <Link to={`/coaches/${coach.user.id}/edit`} className={ui.btnWarning}>
-                                            <img src="/assets/icons/trash.svg" alt="Editar dados" />
+                                            <img src="/assets/icons/pencil.svg" alt="Editar dados" />
                                         </Link>
                                         <button className={ui.btnDanger}>
                                             <img src="/assets/icons/trash.svg" alt="Apagar" />

@@ -1,16 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ui } from "../../styles/ui";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-    const { login } = useAuth();
+    const { login, user } = useAuth();
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if(user) {
+            switch (user.role) {
+                case 'superadmin':
+                    navigate('/coaches');
+                    break;
+                case 'coach':
+                    navigate('/clients');
+                    break;
+                case 'client':
+                    navigate('/my-workouts');
+                    break;
+            }
+        }
+    }, [user]);
 
     const submitLogin = async(e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();

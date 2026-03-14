@@ -71,7 +71,7 @@ export const CoachDetails = () => {
                 <>
                 <div className="mb-3">
                     <div className="flex gap-2 items-center">
-                        <Link to="/coaches" className={`${ui.muted} !font-bold !text-2xl cursor-pointer`}>&lt;</Link>
+                        <Link to="/coaches" className={`${ui.muted} !font-bold !text-2xl cursor-pointer`}>←</Link>
                         <h1 className={ui.title}>{coach?.user.name}</h1>
                     </div>
                     <p>{coach?.user.email}</p>

@@ -17,4 +17,10 @@ export const ui = {
 
     feedbackError: 'text-red-500 text-sm',
     feedbackSuccess: 'text-green-600 text-sm',
+
+    table: 'w-full text-sm text-left',
+    tableHead: 'bg-gray-50 text-gray-600 uppercase text-xs',
+    tableTh: 'px-4 py-3 font-medium',
+    tableTd: 'px-4 py-3 border-t border-gray-100',
+    tableRow: 'even:bg-gray-50'
 }

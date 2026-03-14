@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext'
 import { Coaches } from "./pages/admin/Coaches/Coaches";
 import { Login } from "./pages/auth/Login";
 import { CoachDetails } from "./pages/admin/Coaches/CoachDetails";
+import { NewCoach } from "./pages/admin/Coaches/NewCoach";
 
 function PrivateRoute({ children, roles }: { children: React.ReactNode, roles: string[] }) {
   const { user, loading } = useAuth();
@@ -47,6 +48,13 @@ export default function App() {
               <CoachDetails />
             </PrivateRoute>
           } />
+          <Route path='/coaches/create'
+            element={
+              <PrivateRoute roles={['superadmin']}>
+                <NewCoach />
+              </PrivateRoute>
+            }
+          />
 
         </Routes>
       </AuthProvider>

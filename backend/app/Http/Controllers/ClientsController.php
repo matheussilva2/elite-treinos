@@ -72,8 +72,14 @@ class ClientsController extends Controller
         return response()->json($client->load('user'));
     }
 
-    public function destroy(Client $client): JsonResponse
+    public function destroy(Request $request, Client $client): JsonResponse
     {
+        if(!$this->isCoachAuthorized($request, $client)) {
+            return response()->json([
+                "error" => "Não autorizado."
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $client->user->delete();
 
         return response()->json(null, Response::HTTP_NO_CONTENT);

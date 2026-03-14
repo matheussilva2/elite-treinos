@@ -42,8 +42,14 @@ class ClientsController extends Controller
         return response()->json($client->load('user'), Response::HTTP_CREATED);
     }
 
-    public function show(Client $client): JsonResponse
+    public function show(Request $request, Client $client): JsonResponse
     {
+        if(!$this->isCoachAuthorized($request, $client)) {
+            return response()->json([
+                "error" => "Não autorizado."
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         return response()->json($client->load('user'));
     }
 

@@ -1,10 +1,18 @@
 import type { Client, Coach } from "../types/User";
 import api from "./api";
 
-type CreateUpdatePayloadType = {
+type CreatePayloadType = {
     name: string;
     email: string;
     password: string;
+    phone?: string;
+    cref?: string;
+}
+
+type UpdatePayloadType = {
+    name?: string;
+    email?: string;
+    password?: string;
     phone?: string;
     cref?: string;
 }
@@ -18,11 +26,11 @@ export const coachService = {
         const { data } = await api.get(`/coaches/${id}`);
         return data;
     },
-    create: async(payload: CreateUpdatePayloadType): Promise<Coach> => {
+    create: async(payload: CreatePayloadType): Promise<Coach> => {
         const { data } = await api.post('/coaches', payload);
         return data;
     },
-    update: async(id: number, payload: CreateUpdatePayloadType): Promise<Coach> => {
+    update: async(id: number, payload: UpdatePayloadType): Promise<Coach> => {
         const { data } = await api.put(`/coaches/${id}`, payload);
         return data;
     },

@@ -5,6 +5,7 @@ import { Coaches } from "./pages/admin/Coaches/Coaches";
 import { Login } from "./pages/auth/Login";
 import { CoachDetails } from "./pages/admin/Coaches/CoachDetails";
 import { NewCoach } from "./pages/admin/Coaches/NewCoach";
+import { EditCoach } from "./pages/admin/Coaches/EditCoach";
 
 function PrivateRoute({ children, roles }: { children: React.ReactNode, roles: string[] }) {
   const { user, loading } = useAuth();
@@ -52,6 +53,14 @@ export default function App() {
             element={
               <PrivateRoute roles={['superadmin']}>
                 <NewCoach />
+              </PrivateRoute>
+            }
+          />
+
+          <Route path='/coaches/:id/edit'
+            element={
+              <PrivateRoute roles={['superadmin']}>
+                <EditCoach />
               </PrivateRoute>
             }
           />

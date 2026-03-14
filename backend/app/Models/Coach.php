@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Coach extends Model
 {
-    protected $fillable = ['phone', 'cref'];
+    protected $fillable = ['phone', 'cref','user_id'];
     protected $table = 'coaches';
     protected $primaryKey = 'user_id';
     

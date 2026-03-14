@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AssignWorkoutRequest;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client;
+use App\Models\ClientWorkout;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -47,7 +49,7 @@ class ClientsController extends Controller
 
     public function update(UpdateClientRequest $request, Client $client): JsonResponse
     {
-        if($this->isCoachAuthorized($request, $client)) {
+        if(!$this->isCoachAuthorized($request, $client)) {
             return response()->json([
                 "error" => "Não autorizado."
             ], Response::HTTP_FORBIDDEN);
@@ -71,8 +73,54 @@ class ClientsController extends Controller
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
+    public function assignWorkout(AssignWorkoutRequest $request, Client $client): JsonResponse {
+        if(!$this->isCoachAuthorized($request, $client)) {
+            return response()->json([
+                "error" => "Não autorizado."
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $workout_counts = ClientWorkout::where('client_id', $client->user_id)->count();
+
+        if($workout_counts >= 2) {
+            return response()->json(
+                ['message' => 'Limite de treinos alcançado (max: 2).'],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        $isAlredyAssigned = ClientWorkout::where('client_id', $client->user_id)
+        ->where('workout_code', $request->workout_code)
+        ->exists();
+
+        if($isAlredyAssigned) {
+            return response()->json([
+                'message' => 'Já atribuído.'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $clientWorkout = ClientWorkout::create([
+            'client_id' => $client->user_id,
+            'workout_code' => $request->workout_code
+        ]);
+
+        return response()->json($clientWorkout->load('workout'), Response::HTTP_CREATED);
+    }
+
+    public function workouts(Request $request, Client $client): JsonResponse {
+        if(!$this->isCoachAuthorized($request, $client)) {
+            return response()->json([
+                "error" => "Não autorizado."
+            ], Response::HTTP_FORBIDDEN);   
+        }
+
+        $workouts = ClientWorkout::where('client_id', $client->user_id)->get();
+
+        return response()->json($workouts);
+    }
+
     private function isCoachAuthorized(Request $request, Client $client): bool {
-        if($client->coach_id !== $request->user()->user_id) {
+        if($client->coach_id === $request->user()->user_id) {
             return false;
         } else {
             return true;

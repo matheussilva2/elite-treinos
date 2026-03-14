@@ -10,8 +10,9 @@ class Coach extends Model
     protected $fillable = ['phone', 'cref','user_id'];
     protected $table = 'coaches';
     protected $primaryKey = 'user_id';
+    public $incrementing = false;
     
     public function user(): BelongsTo {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

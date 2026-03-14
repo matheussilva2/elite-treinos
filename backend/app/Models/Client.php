@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Client extends Model
 {
     protected $fillable = ['user_id', 'coach_id', 'birthdate', 'notes'];
+    public $incrementing = false;
 
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);

@@ -22,10 +22,10 @@ export const Login = () => {
 
             switch (user.role) {
                 case 'superadmin':
-                    navigate('/admin');
+                    navigate('/coaches');
                     break;
                 case 'coach':
-                    navigate('/coach');
+                    navigate('/clients');
                     break;
                 case 'client':
                     navigate('/my-workouts');

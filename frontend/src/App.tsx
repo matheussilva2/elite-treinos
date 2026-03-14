@@ -6,6 +6,7 @@ import { Login } from "./pages/auth/Login";
 import { CoachDetails } from "./pages/admin/Coaches/CoachDetails";
 import { NewCoach } from "./pages/admin/Coaches/NewCoach";
 import { EditCoach } from "./pages/admin/Coaches/EditCoach";
+import { Layout } from "./components/Layout";
 
 function PrivateRoute({ children, roles }: { children: React.ReactNode, roles: string[] }) {
   const { user, loading } = useAuth();
@@ -31,7 +32,6 @@ function CheckRole() {
 
 export default function App() {
 
-
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -41,18 +41,24 @@ export default function App() {
 
           <Route path='/coaches' element={
             <PrivateRoute roles={['superadmin']}>
-              <Coaches />
+              <Layout>
+                <Coaches />
+              </Layout>
             </PrivateRoute>
           } />
           <Route path='/coaches/:id' element={
             <PrivateRoute roles={['superadmin']}>
-              <CoachDetails />
+              <Layout>
+                <CoachDetails />
+              </Layout>
             </PrivateRoute>
           } />
           <Route path='/coaches/create'
             element={
               <PrivateRoute roles={['superadmin']}>
-                <NewCoach />
+                <Layout>
+                  <NewCoach />
+                </Layout>
               </PrivateRoute>
             }
           />
@@ -60,7 +66,9 @@ export default function App() {
           <Route path='/coaches/:id/edit'
             element={
               <PrivateRoute roles={['superadmin']}>
-                <EditCoach />
+                <Layout>
+                  <EditCoach />
+                </Layout>
               </PrivateRoute>
             }
           />

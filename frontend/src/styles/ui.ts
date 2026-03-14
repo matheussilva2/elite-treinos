@@ -1,5 +1,5 @@
 export const ui = {
-    page: 'min-h-screen bg-gray-100 p-6',
+    page: 'max-w-5xl mx-auto p-6',
     card: 'bg-white rounded-lg shadow-md p-6',
 
     title: 'text-2xl font-bold text-gray-900',

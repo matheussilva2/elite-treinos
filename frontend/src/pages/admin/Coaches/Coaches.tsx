@@ -32,7 +32,7 @@ export const Coaches = () => {
     return <div className={`${ui.page}`}>
         <div className="flex justify-between mb-3">
             <h1 className={ui.title}>Coaches</h1>
-            <button className={`${ui.btnPrimary}`}>+ Novo Personal</button>
+            <Link to='/coaches/create' className={`${ui.btnPrimary}`}>+ Novo Personal</Link>
         </div>
         {
             loading? "Carregando..." : (

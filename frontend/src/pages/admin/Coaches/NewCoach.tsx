@@ -58,7 +58,7 @@ export const NewCoach = () => {
                 <Link to="/coaches" className={`${ui.muted} font-bold! text-2xl! cursor-pointer`}>←</Link>
                 <h1 className={ui.title}>Criar Personal</h1>
             </div>
-            <form onSubmit={handleSubmit} className={`mt-4 max-w-screen w-125 mx-auto`}>
+            <form onSubmit={handleSubmit} className={`mt-4 max-w-full w-125 mx-auto`}>
                 <h2 className={`${ui.subtitle} text-center mb-3`}>Novo Personal</h2>
                 <input
                     className={`${ui.input} mb-2`}

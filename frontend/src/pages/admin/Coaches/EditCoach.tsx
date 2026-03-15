@@ -94,12 +94,12 @@ export const EditCoach = () => {
             </div>
             {
                 loading ? 'carregando...' : (
-                    <form onSubmit={handleSubmit} className={`mt-4 max-w-screen w-125 mx-auto`}>
+                    <form onSubmit={handleSubmit} className={`mt-4 max-w-full w-125 mx-auto`}>
                         <h2 className={`${ui.subtitle} text-center mb-3`}>Novo Personal</h2>
                         <input
                             className={`${ui.input} mb-2`}
                             placeholder="Nome"
-                            value={form.name}
+                            value={form?.name}
                             name="name"
                             type="text"
                             onChange={handleChange}
@@ -107,7 +107,7 @@ export const EditCoach = () => {
                         <input
                             className={`${ui.input} mb-2`}
                             placeholder="E-mail"
-                            value={form.email}
+                            value={form?.email}
                             name="email"
                             type="email"
                             onChange={handleChange}
@@ -115,7 +115,7 @@ export const EditCoach = () => {
                         <input
                             className={`${ui.input} mb-2`}
                             placeholder="Senha (pelo menos 8 dígitos)"
-                            value={form.password}
+                            value={form?.password}
                             name="password"
                             type="password"
                             minLength={8}
@@ -124,7 +124,7 @@ export const EditCoach = () => {
                         <input
                             className={`${ui.input} mb-2`}
                             placeholder="Telefone"
-                            value={form.phone}
+                            value={form?.phone}
                             name="phone"
                             type="text"
                             onChange={handleChange}
@@ -132,7 +132,7 @@ export const EditCoach = () => {
                         <input
                             className={`${ui.input} mb-2`}
                             placeholder="CREF"
-                            value={form.cref}
+                            value={form?.cref}
                             name="cref"
                             type="text"
                             onChange={handleChange}

@@ -128,7 +128,7 @@ class ClientsController extends Controller
 
         $workouts = ClientWorkout::where('client_id', $client->user_id)->get();
 
-        return response()->json($workouts);
+        return response()->json($workouts->load('workout'));
     }
 
     private function isCoachAuthorized(Request $request, Client $client): bool {

@@ -97,7 +97,9 @@ export const CoachDetails = () => {
                             clients.length === 0 ? (
                                 <p className={ui.muted}>Nenhum cliente cadastrado.</p>
                             ) : (
-                                <ClientsTable clients={clients} />
+                                <div className="max-w-full overflow-x-scroll">
+                                    <ClientsTable clients={clients} />
+                                </div>
                             )
                         }
                     </div>

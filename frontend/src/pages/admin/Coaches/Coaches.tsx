@@ -49,6 +49,8 @@ export const Coaches = () => {
                     </thead>
                     <tbody>
                         {
+                            coaches.length <= 0 ? 
+                            <span className={ui.muted}>Nenhum personal cadastrado</span> :
                             coaches.map((coach) => (
                                 <tr key={coach.user.id} className={ui.tableRow}>
                                     <td className={ui.tableTd}>{coach.user.id}</td>

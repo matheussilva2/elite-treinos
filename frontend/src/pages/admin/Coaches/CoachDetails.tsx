@@ -92,10 +92,10 @@ export const CoachDetails = () => {
                         }
                     </div>
                     <div>
-                        <h2 className={`${ui.subtitle} my-3`}>Clientes</h2>
+                        <h2 className={`${ui.subtitle} my-3`}>Alunos</h2>
                         {
                             clients.length === 0 ? (
-                                <p className={ui.muted}>Nenhum cliente cadastrado.</p>
+                                <p className={ui.muted}>Nenhum aluno cadastrado.</p>
                             ) : (
                                 <div className="max-w-full overflow-x-scroll">
                                     <ClientsTable clients={clients} />

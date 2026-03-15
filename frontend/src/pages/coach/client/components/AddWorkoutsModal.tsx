@@ -38,7 +38,7 @@ export const AddWorkoutsModal = ({ isOpen, client, setOpen, callback }: AddWorko
     const [selectedWorkout, setSelectedWorkout] = useState<WorkoutExercisesType | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const [saving, setSaving] = useState(false)
+    const [saving, setSaving] = useState(false);
 
     const assignWorkout = async() => {
         if(!selectedWorkout) return;
@@ -65,9 +65,9 @@ export const AddWorkoutsModal = ({ isOpen, client, setOpen, callback }: AddWorko
     }
 
     const handleApiError = (data: any): void => {
-        const firstError: any = Object.values(data.errors)[0];
+        const error: any = Object.values(data);
         
-        setError(firstError[0]);
+        setError(error);
     }
 
     const selectWorkout = async(e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -114,6 +114,12 @@ export const AddWorkoutsModal = ({ isOpen, client, setOpen, callback }: AddWorko
                 {
                     selectedWorkout && (
                         <WorkoutExercises workout={selectedWorkout} />
+                    )
+                }
+
+                {
+                    error && (
+                        <span className={ui.feedbackError}>{error}</span>
                     )
                 }
 

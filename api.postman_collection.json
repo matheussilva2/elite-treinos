@@ -1,0 +1,680 @@
+{
+  "info": {
+    "_postman_id": "4cce2f4f-9880-4e6b-b390-1a21ea721b0b",
+    "name": "Elite Treinos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15715510",
+    "_collection_link": "https://go.postman.co/collection/35125529-4cce2f4f-9880-4e6b-b390-1a21ea721b0b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Me",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{client_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{laravel_server}}/api/auth/me",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"client@teste.com\",\r\n    \"password\": \"client\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/auth/login",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{laravel_server}}/api/auth/logout",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Coach",
+      "item": [
+        {
+          "name": "Index",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{laravel_server}}/api/coaches",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "coaches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{laravel_server}}/api/coaches/5",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "coaches",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clients",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{laravel_server}}/api/coaches/5/clients",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "coaches",
+                "5",
+                "clients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Teste\",\r\n    \"email\": \"teste5@teste.com\",\r\n    \"password\": \"teste1324\",\r\n    \"phone\": \"55555555555\",\r\n    \"cref\": \"565656G/SP\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/coaches",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "coaches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"phone\": \"55555555559\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/coaches/5",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "coaches",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{laravel_server}}/api/coaches/7",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "coaches",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Aluna teste\",\r\n    \"email\": \"aluna@teste.com\",\r\n    \"password\": \"senha123\",\r\n    \"birthdate\": \"1998-05-20\",\r\n    \"notes\": \"Observação de teste\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/clients",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{clientsPath}}' --header 'Content-Type: application/json' --data '{\"name\":\"{{clientName}}\",\"email\":\"{{clientEmail}}\"}'"
+          },
+          "response": []
+        },
+        {
+          "name": "Assign Workout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"workout_code\": \"C\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/clients/3/workouts",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients",
+                "3",
+                "workouts"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{clientsPath}}' --header 'Content-Type: application/json' --data '{\"name\":\"{{clientName}}\",\"email\":\"{{clientEmail}}\"}'"
+          },
+          "response": []
+        },
+        {
+          "name": "Client Workouts",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/clients/3/workouts",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients",
+                "3",
+                "workouts"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request POST '{{baseUrl}}{{clientsPath}}' --header 'Content-Type: application/json' --data '{\"name\":\"{{clientName}}\",\"email\":\"{{clientEmail}}\"}'"
+          },
+          "response": []
+        },
+        {
+          "name": "Index",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{laravel_server}}/api/clients",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request GET '{{baseUrl}}{{clientsPath}}/{{clientId}}' --header 'Accept: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "Show",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{laravel_server}}/api/clients/10",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients",
+                "10"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request GET '{{baseUrl}}{{clientsPath}}/{{clientId}}' --header 'Accept: application/json'"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"notes\": \"Observação de teste 2\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{laravel_server}}/api/clients/10",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients",
+                "10"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request PUT '{{baseUrl}}{{clientsPath}}/{{clientId}}' --header 'Content-Type: application/json' --data '{\"name\":\"{{clientName}}\",\"email\":\"{{clientEmail}}\"}'"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{personal_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{laravel_server}}/api/clients/10",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "clients",
+                "10"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request DELETE '{{baseUrl}}{{clientsPath}}/{{clientId}}' --header 'Accept: application/json'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "My Workouts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{client_auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{laravel_server}}/api/my-workouts",
+              "host": [
+                "{{laravel_server}}"
+              ],
+              "path": [
+                "api",
+                "my-workouts"
+              ]
+            },
+            "description": "Generated from cURL: curl --location --request GET '{{baseUrl}}{{clientsPath}}/{{clientId}}' --header 'Accept: application/json'"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "laravel_server",
+      "value": ""
+    },
+    {
+      "key": "personal_auth_token",
+      "value": ""
+    },
+    {
+      "key": "admin_auth_token",
+      "value": ""
+    },
+    {
+      "key": "client_auth_token",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

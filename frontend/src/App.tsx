@@ -7,6 +7,10 @@ import { CoachDetails } from "./pages/admin/Coaches/CoachDetails";
 import { NewCoach } from "./pages/admin/Coaches/NewCoach";
 import { EditCoach } from "./pages/admin/Coaches/EditCoach";
 import { Layout } from "./components/Layout";
+import { Clients } from "./pages/coach/client/Clients";
+import { ClientDetails } from "./pages/coach/client/ClientDetails";
+import { NewClient } from "./pages/coach/client/NewClient";
+import { EditClient } from "./pages/coach/client/EditClient";
 
 function PrivateRoute({ children, roles }: { children: React.ReactNode, roles: string[] }) {
   const { user, loading } = useAuth();
@@ -39,6 +43,7 @@ export default function App() {
           <Route path='/' element={<CheckRole />} />
           <Route path='/login' element={<Login />} /> 
 
+          {/* Rotas de admin */}
           <Route path='/coaches' element={
             <PrivateRoute roles={['superadmin']}>
               <Layout>
@@ -62,12 +67,48 @@ export default function App() {
               </PrivateRoute>
             }
           />
-
           <Route path='/coaches/:id/edit'
             element={
               <PrivateRoute roles={['superadmin']}>
                 <Layout>
                   <EditCoach />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+
+          {/* Rotas de personal */}
+          <Route path='/clients'
+            element={
+              <PrivateRoute roles={['coach']}>
+                <Layout>
+                  <Clients />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+
+          <Route path='/clients/:id' element={
+            <PrivateRoute roles={['coach']}>
+              <Layout>
+                <ClientDetails />
+              </Layout>
+            </PrivateRoute>
+          } />
+          <Route path='/clients/create'
+            element={
+              <PrivateRoute roles={['coach']}>
+                <Layout>
+                  <NewClient />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route path='/clients/:id/edit'
+            element={
+              <PrivateRoute roles={['coach']}>
+                <Layout>
+                  <EditClient />
                 </Layout>
               </PrivateRoute>
             }

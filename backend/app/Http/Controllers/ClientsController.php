@@ -107,7 +107,7 @@ class ClientsController extends Controller
 
         if($isAlredyAssigned) {
             return response()->json([
-                'message' => 'Já atribuído.'
+                'message' => 'Esse treino já está cadastrado.'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 

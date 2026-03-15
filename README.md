@@ -21,6 +21,8 @@
 - Instale o PHP na versão ^8.2
 - Instale o composer (no projeto foi usada a versão 2.9.5)
 - Crie o banco de dados ```create database nome_db```
+- Copie o arquivo .env.example e renomeie para .env
+- Nessa etapa só é necessário configurar o banco de dados (DB_HOST, DB_PORT, DB_DATABASE...)
 - Abra o cmd e execute os comandos:
     - ```composer install```
     - ```php artisan key:generate```

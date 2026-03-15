@@ -77,6 +77,10 @@ export const MyWorkouts = () => {
             <div>
                 <h2 className={`${ui.subtitle} mb-3`}>Seus treinos</h2>
                 {
+                    (workouts.length <= 0 && !loading) &&
+                    <span className={ui.muted}>Nenhum treino cadastrado</span>
+                }
+                {
                     loading ? 'carregando...' : (
                         <WorkoutsList workouts={workouts} />
                     )

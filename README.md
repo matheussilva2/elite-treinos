@@ -51,6 +51,8 @@
 ### Banco de Dados
 O sistema possui evidentes relacionamentos (Conta, Personal, Aluno...), então foi modelado no diagrama do Modelo Entidade-Relacionamento (ER) usando BR Modelo e usado MySQL como SGBD.
 
+![Modelagem ER](https://raw.githubusercontent.com/matheussilva2/elite-treinos/refs/heads/main/modelo_conceitual.png)
+
 O diagrama ER está disponível está disponível no arquivo ```modelo_conceitual.brM3```
 
 Notas:

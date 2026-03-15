@@ -11,6 +11,7 @@ import { Clients } from "./pages/coach/client/Clients";
 import { ClientDetails } from "./pages/coach/client/ClientDetails";
 import { NewClient } from "./pages/coach/client/NewClient";
 import { EditClient } from "./pages/coach/client/EditClient";
+import { MyWorkouts } from "./pages/client/MyWorkouts";
 
 function PrivateRoute({ children, roles }: { children: React.ReactNode, roles: string[] }) {
   const { user, loading } = useAuth();
@@ -109,6 +110,17 @@ export default function App() {
               <PrivateRoute roles={['coach']}>
                 <Layout>
                   <EditClient />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+
+          {/* Rotas do aluno */}
+          <Route path='/my-workouts'
+            element={
+              <PrivateRoute roles={['client']}>
+                <Layout>
+                  <MyWorkouts />
                 </Layout>
               </PrivateRoute>
             }

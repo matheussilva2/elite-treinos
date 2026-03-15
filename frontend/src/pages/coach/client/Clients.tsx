@@ -49,6 +49,9 @@ export const Clients = () => {
                     </thead>
                     <tbody>
                         {
+                            clients.length <= 0 ?
+                            <span className={ui.muted}>Nenhum cliente cadastrado</span> :
+                            (
                             clients.map((client) => (
                                 <tr key={client.user.id} className={ui.tableRow}>
                                     <td className={ui.tableTd}>{client.user.id}</td>
@@ -75,6 +78,7 @@ export const Clients = () => {
                                     </td>
                                 </tr>
                             ))
+                            )
                         }
                     </tbody>
                 </table>

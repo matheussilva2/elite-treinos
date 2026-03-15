@@ -5,10 +5,13 @@ import { clientWorkoutService } from "../../services/clientWorkoutService";
 import { useAuth } from "../../contexts/AuthContext";
 
 const ExercisesList = ({exercises}: {exercises: Exercise[]}) => {
+
+
     return (
         <>
             {
-                exercises.map((exercise) => (
+                exercises.toSorted((a, b) => a.order - b.order)
+                .map((exercise) => (
                     <div className="pl-4">
                         <p>{exercise.order}. {exercise.name} — {exercise.sets}x{exercise.repeats}</p>
                     </div>

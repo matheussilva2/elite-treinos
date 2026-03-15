@@ -20,7 +20,8 @@ export const WorkoutExercises = ({workout}: {workout: WorkoutExercisesType}) => 
     return(
     <div className="h-50 overflow-y-scroll mb-2 rounded-md p-2 border border-gray-600/20">
         {
-            workout.exercises.map((exercise) => (
+            workout.exercises.toSorted((a, b) => a.order - b.order)
+            .map((exercise) => (
                 <div className="border border-gray-600/50 rounded-md mb-2 p-2">
                     <p>{exercise.name} - {exercise.sets > 0 && exercise.sets}x{exercise.repeats}</p>
                     <p>Ordem: {exercise.order}</p>

@@ -34,6 +34,7 @@ export const Coaches = () => {
             <h1 className={ui.title}>Coaches</h1>
             <Link to='/coaches/create' className={`${ui.btnPrimary}`}>+ Novo Personal</Link>
         </div>
+        <div className="max-w-full overflow-x-scroll">
         {
             loading? "Carregando..." : (
                 <table className={ui.table}>
@@ -58,15 +59,27 @@ export const Coaches = () => {
                                     <td className={ui.tableTd}>{coach.user.email}</td>
                                     <td className={ui.tableTd}>{coach.phone || " - "}</td>
                                     <td className={ui.tableTd}>{coach.cref || " - "}</td>
-                                    <td className={`${ui.tableTd} flex gap-1 justify-end`}>
+                                    <td className={`${ui.tableTd} flex flex-wrap gap-1 justify-end`}>
                                         <Link to={`/coaches/${coach.user.id}`} className={ui.btnPrimary}>
-                                            <img src="/assets/icons/eye.svg" alt="Ver dados" />
+                                            <img
+                                                src="/assets/icons/eye.svg"
+                                                alt="Ver dados"
+                                                className="w-5 min-w-5 h-5"
+                                            />
                                         </Link>
                                         <Link to={`/coaches/${coach.user.id}/edit`} className={ui.btnWarning}>
-                                            <img src="/assets/icons/pencil.svg" alt="Editar dados" />
+                                            <img
+                                                src="/assets/icons/pencil.svg"
+                                                alt="Editar dados"
+                                                className="w-5 min-w-5 h-5"
+                                            />
                                         </Link>
                                         <button onClick={() => deleteCoach(coach)} className={ui.btnDanger}>
-                                            <img src="/assets/icons/trash.svg" alt="Apagar" />
+                                            <img
+                                                src="/assets/icons/trash.svg"
+                                                alt="Apagar"
+                                                className="w-5 min-w-5 h-5"
+                                            />
                                         </button>
                                     </td>
                                 </tr>
@@ -76,5 +89,6 @@ export const Coaches = () => {
                 </table>
             )
         }
+        </div>
     </div>
 }

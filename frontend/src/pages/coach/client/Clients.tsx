@@ -34,6 +34,7 @@ export const Clients = () => {
             <h1 className={ui.title}>Alunos</h1>
             <Link to='/clients/create' className={`${ui.btnPrimary}`}>+ Novo Aluno</Link>
         </div>
+        <div className="max-w-full overflow-x-scroll">
         {
             loading? "Carregando..." : (
                 <table className={ui.table}>
@@ -65,16 +66,29 @@ export const Clients = () => {
                                         }
                                     </td>
                                     <td className={ui.tableTd}>{client.notes || " - "}</td>
-                                    <td className={`${ui.tableTd} flex gap-1 justify-end`}>
-                                        <Link to={`/clients/${client.user.id}`} className={ui.btnPrimary}>
-                                            <img src="/assets/icons/eye.svg" alt="Ver dados" />
-                                        </Link>
-                                        <Link to={`/clients/${client.user.id}/edit`} className={ui.btnWarning}>
-                                            <img src="/assets/icons/pencil.svg" alt="Editar dados" />
-                                        </Link>
-                                        <button onClick={() => deleteClient(client)} className={ui.btnDanger}>
-                                            <img src="/assets/icons/trash.svg" alt="Apagar" />
-                                        </button>
+                                    <td className={`${ui.tableTd} whitespace-nowrap`}>
+                                        <div className="flex gap-1 justify-end flex-wrap">
+                                            <Link to={`/clients/${client.user.id}`} className={ui.btnPrimary}>
+                                                <img
+                                                    src="/assets/icons/eye.svg"
+                                                    className="w-5 min-w-5 h-5"
+                                                    alt="Ver dados" />
+                                            </Link>
+                                            <Link to={`/clients/${client.user.id}/edit`} className={ui.btnWarning}>
+                                                <img
+                                                    src="/assets/icons/pencil.svg"
+                                                    className="w-5 min-w-5 h-5"
+                                                    alt="Editar dados"
+                                                />
+                                            </Link>
+                                            <button onClick={() => deleteClient(client)} className={ui.btnDanger}>
+                                                <img
+                                                    src="/assets/icons/trash.svg"
+                                                    className="w-5 min-w-5 h-5"
+                                                    alt="Apagar"
+                                                />
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))
@@ -84,5 +98,6 @@ export const Clients = () => {
                 </table>
             )
         }
+        </div>
     </div>
 }

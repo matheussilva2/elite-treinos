@@ -14,6 +14,6 @@ export interface Coach {
 export interface Client {
     coach_id: number;
     user: User;
-    birthdate?: Date;
+    birthdate?: string;
     notes?: string;
 }

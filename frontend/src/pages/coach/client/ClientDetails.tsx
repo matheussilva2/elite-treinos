@@ -82,7 +82,7 @@ export const ClientDetails = () => {
                         {
                             client?.notes && (
                                 <span>
-                                    Telefone: <span className="font-bold">{client?.notes}</span>
+                                    Observação: <span className="font-bold">{client?.notes}</span>
                                 </span>
                             )
                         }

@@ -82,3 +82,16 @@ Diferente do back-end que seguiu mais no padrão do Laravel, no front-end foi cr
     - contexts: contexts da aplicação, nesse caso, só o AuthContext para globalização da sessão, função de login e logout.
     - services: pasta para modularização de processos agrupados como consultas para API, CRUD e outras chamadas para a API.
     - styles/ui.ts: arquivo para centralizar as classes para elementos de interface (botão, texto...). Poderia também ser utilizado as próprias @utility do TailwindCSS.
+
+## Testando API pelo Scramble
+Ao lado esquerdo da tela, você verá a coleção onde ficam todas as requisições.
+Expanda cada item e veja quais requisições podem ser feitas.
+![docs/collection.png](https://raw.githubusercontent.com/matheussilva2/elite-treinos/refs/heads/main/docs/collection.png)
+
+Na tela da requisição você verá o token junto do corpo da requisição (item 1). O token será preenchido automaticamente quando feito o login na seção Auth/auth.login.
+
+No item 2 você verá o CURL da requisição e abaixo o exemplo de resposta. Quando a requisição for feita, a resposta aparecerá embaixo do CURL.
+
+As regras dos parâmetros da requisição pode ser encontrada no Body (item 3).
+
+![docs/collection.png](https://raw.githubusercontent.com/matheussilva2/elite-treinos/refs/heads/main/docs/sending_request.png)

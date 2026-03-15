@@ -100,7 +100,9 @@ export const ClientDetails = () => {
                             workouts.length === 0 ? (
                                 <p className={ui.muted}>Nenhum treino cadastrado.</p>
                             ) : (
-                                <WorkoutsTable workouts={workouts} />
+                                <div className="max-w-full overflow-x-scroll">
+                                    <WorkoutsTable workouts={workouts} />
+                                </div>
                             )
                         }
                     </div>

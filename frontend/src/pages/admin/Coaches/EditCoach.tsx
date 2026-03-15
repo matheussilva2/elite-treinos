@@ -64,6 +64,7 @@ export const EditCoach = () => {
         try {
             await coachService.update(Number(id), {
                 ...form,
+                email: coach?.user.email === form.email ? undefined : form.email,
                 password: form.password || undefined
             });
             navigate('/coaches');

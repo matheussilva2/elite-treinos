@@ -89,7 +89,7 @@ export const EditClient = () => {
                 <Link to="/clients" className={`${ui.muted} font-bold! text-2xl! cursor-pointer`}>←</Link>
                 <h1 className={ui.title}>Editar Aluno</h1>
             </div>
-            <form onSubmit={handleSubmit} className={`mt-4 max-w-screen w-125 mx-auto`}>
+            <form onSubmit={handleSubmit} className={`mt-4 max-w-full w-125 mx-auto`}>
                 <h2 className={`${ui.subtitle} text-center mb-3`}>Novo Aluno</h2>
                 <input
                     className={`${ui.input} mb-2`}

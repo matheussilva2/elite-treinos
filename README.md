@@ -8,7 +8,7 @@
 - React Router DOM ^7.13
 
 ### Back-end
-- PHP ^8.2
+- PHP ^8.4
 - Laravel ^12.0
 - Scramble (dedoc/scramble) ^0.13 (Docs API)
 
@@ -18,7 +18,7 @@
 ## Configurando o projeto
 ### Back-end
 - Acesse a pasta /backend no terminal
-- Instale o PHP na versão ^8.2
+- Instale o PHP na versão ^8.4
 - Instale o composer (no projeto foi usada a versão 2.9.5)
 - Copie o arquivo .env.example e renomeie para .env
 - Nessa etapa só é necessário configurar o banco de dados (DB_HOST, DB_PORT, DB_DATABASE...)

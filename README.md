@@ -20,7 +20,6 @@
 - Acesse a pasta /backend no terminal
 - Instale o PHP na versão ^8.2
 - Instale o composer (no projeto foi usada a versão 2.9.5)
-- Crie o banco de dados ```create database nome_db```
 - Copie o arquivo .env.example e renomeie para .env
 - Nessa etapa só é necessário configurar o banco de dados (DB_HOST, DB_PORT, DB_DATABASE...)
 - Abra o cmd e execute os comandos:
@@ -30,7 +29,8 @@
 
 ### Front-end
 - Acesse a pasta /frontend no terminal
-- Execute o comando ```npm install```
+- Execute o comando ```npm install --legacy-peer-deps```
+    - A flag é necessária devido a incompatibilidades de alguns pacotes com essa versão do React
 - Para inicializar o projeto, execute ```npm run dev```
 - Acesse o projeto pelo link: http://localhost:5173
 
@@ -86,6 +86,7 @@ Diferente do back-end que seguiu mais no padrão do Laravel, no front-end foi cr
     - styles/ui.ts: arquivo para centralizar as classes para elementos de interface (botão, texto...). Poderia também ser utilizado as próprias @utility do TailwindCSS.
 
 ## Testando API pelo Scramble
+
 Ao lado esquerdo da tela, você verá a coleção onde ficam todas as requisições.
 Expanda cada item e veja quais requisições podem ser feitas.
 ![docs/collection.png](https://raw.githubusercontent.com/matheussilva2/elite-treinos/refs/heads/main/docs/collection.png)
@@ -97,3 +98,7 @@ No item 2 você verá o CURL da requisição e abaixo o exemplo de resposta. Qua
 As regras dos parâmetros da requisição pode ser encontrada no Body (item 3).
 
 ![docs/collection.png](https://raw.githubusercontent.com/matheussilva2/elite-treinos/refs/heads/main/docs/sending_request.png)
+
+Faça o login e associe o token no campo conforme a imagem abaixo. Quando o token estiver associado, ele ficará em todas as páginas automaticamente (o mesmo se aplica quando o token for alterado).
+
+![docs/auth.png](https://raw.githubusercontent.com/matheussilva2/elite-treinos/refs/heads/main/docs/auth.png)
